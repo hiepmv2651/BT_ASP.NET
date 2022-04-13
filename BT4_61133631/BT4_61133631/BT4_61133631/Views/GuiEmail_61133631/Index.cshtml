@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<form name="f1" action="/GuiEmail_61133631/Index" method="post">
+    <h4>CHUC NANG GUI EMAIL</h4>
+    <label>Gửi từ email:</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" type="text" name="From">
+    </div>
+
+
+    <label for="Name">Mật khẩu:</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" type="password" name="Password">
+    </div>
+
+    <label>Gửi đến email:</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" type="text" name="To">
+    </div>
+
+    <label>Tiêu đề</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" type="text" name="Subject">
+    </div>
+
+    <label>Nội dung</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" type="text" name="Body">
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Gửi email" class="btn btn-default">
+    </div>
+</form>

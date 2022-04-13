@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<form action="/NhanVien_61133631/Index" enctype="multipart/form-data" method="post">
+    <hr>
+
+    <label for="EmpID">Mã nhân viên</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" id="EmpID" name="EmpID" type="text" value="">
+    </div>
+
+
+    <label for="Name">Họ tên nhân viên</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="">
+    </div>
+
+    <label for="BirthOfDate">Ngày sinh</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-date="The field NgaySinh must be a date." id="BirthOfDate" name="BirthOfDate" type="datetime" value="">
+    </div>
+
+    <label for="Email">Email</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" id="Email" name="Email" type="text" value="">
+    </div>
+
+    <label for="Password">Mật khẩu</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" id="Password" name="Password" type="password" value="">
+    </div>
+
+    <label for="Department">Đơn vị</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" id="Department" name="Department" type="text" value="">
+    </div>
+
+    <label for="AnhNV">Ảnh đại diện</label>
+    <div class="col-md-10">
+        <input type="file" style="height:30px;" name="Avatar" accept="image/*" required="">
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Đăng kí" class="btn btn-default">
+    </div>
+
+</form>
+
+
+
+
