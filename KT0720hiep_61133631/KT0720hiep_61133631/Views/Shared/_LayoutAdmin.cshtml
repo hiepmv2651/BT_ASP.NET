@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/styleAdmin.css" rel="stylesheet" />
+</head>
+<body style="margin-top:0px;">
+
+    <div id="menu" style="margin-top:0px;">
+        <div>
+            @Html.ActionLink("GIỚI THIỆU", "../SinhVien0720_61133631/GioiThieu", new { @class = "a" }) &nbsp;|&nbsp;
+            @Html.ActionLink("THÊM MỚI", "../SinhVien0720_61133631/Create", new { @class = "a" })&nbsp;|&nbsp;
+            @Html.ActionLink("DANH SÁCH", "../SinhVien0720_61133631/Index", new { @class = "a" }) &nbsp;|&nbsp;
+            @Html.ActionLink("TÌM KIẾM", "../SinhVien0720_61133631/TimKiem", new { @class = "a" })
+            <hr style="display: block;border-top: 1px solid aqua;  margin: 8px 0;" />
+        </div>
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

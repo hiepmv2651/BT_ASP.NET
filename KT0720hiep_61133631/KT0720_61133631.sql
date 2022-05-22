@@ -1,0 +1,60 @@
+﻿CREATE DATABASE KT0720_61133631
+GO
+
+USE KT0720_61133631
+GO
+
+CREATE TABLE LOP(
+	MALOP VARCHAR(10) PRIMARY KEY,
+	TENLOP NVARCHAR(50) NOT NULL
+)
+
+GO
+CREATE TABLE SINHVIEN(
+	MASV VARCHAR(10) PRIMARY KEY,
+	HOSV NVARCHAR(30) NOT NULL,
+	TENSV NVARCHAR(10) NOT NULL,
+	NGAYSINH DATE NOT NULL,
+	GIOITINH BIT DEFAULT(1),
+	ANHSV NVARCHAR(50),
+	DIACHI NVARCHAR(50) NOT NULL,
+	MALOP VARCHAR(10) FOREIGN KEY REFERENCES LOP(MALOP) NOT NULL
+)
+
+GO
+INSERT INTO LOP
+VALUES('61CNTT2', N'61 Công nghệ thông tin 2'),
+	('61CNTT1', N'61 Công nghệ thông tin 1'),
+	('61CNTT3', '61 Công nghệ thông tin 3')
+
+GO
+INSERT INTO SINHVIEN
+VALUES('61131111', N'Nguyễn Văn', N'Tiền', CAST(N'2001-01-01' AS Date), 1, N'employee.png', N'Nha Trang, Khánh Hòa', '61CNTT1'),
+	('61131112', N'Trần Văn', N'Tuấn', CAST(N'2001-01-02' AS Date), 1, N'employee.png', N'Nha Trang, Khánh Hòa', '61CNTT2'),
+	('61131113', N'Lê Văn', N'Thiện', CAST(N'2001-01-03' AS Date), 1, N'employee.png', N'Nha Trang, Khánh Hòa', '61CNTT3')
+	
+GO
+CREATE PROCEDURE SinhVien_TimKiem
+    @MASV VARCHAR(10)=NULL,
+	@TENSV NVARCHAR(10)=NULL
+	
+AS
+BEGIN
+DECLARE @SqlStr NVARCHAR(4000),
+		@ParamList nvarchar(2000)
+SELECT @SqlStr = '
+       SELECT * 
+       FROM SINHVIEN
+       WHERE  (1=1)
+       '
+IF @MASV IS NOT NULL
+       SELECT @SqlStr = @SqlStr + '
+              AND (MASV LIKE ''%'+@MASV+'%'')
+              '
+IF @TENSV IS NOT NULL
+       SELECT @SqlStr = @SqlStr + '
+              AND (TENSV LIKE ''%'+@TENSV+'%'')
+              '
+
+	EXEC SP_EXECUTESQL @SqlStr
+END
